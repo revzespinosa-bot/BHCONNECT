@@ -1,0 +1,568 @@
+/* Patient Portal — mobile-first booking flow */
+
+.portal-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f0fdfa 0%, #f8fafc 40%);
+  font-family: Inter, 'Segoe UI', system-ui, sans-serif;
+  color: #0f172a;
+}
+
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.portal-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #0d9488;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.portal-brand strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.portal-brand span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.portal-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.portal-progress {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0;
+  flex-wrap: wrap;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0.4;
+  min-width: 64px;
+}
+
+.progress-step.active {
+  opacity: 1;
+}
+
+.progress-step.current .progress-dot {
+  background: #0d9488;
+  color: white;
+  transform: scale(1.1);
+}
+
+.progress-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.progress-label {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.portal-main {
+  flex: 1;
+  padding: 1.25rem;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.portal-step {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.portal-step-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.step-badge {
+  display: inline-block;
+  background: #ccfbf1;
+  color: #0f766e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portal-step-header h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.portal-step-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.portal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.portal-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.portal-form input {
+  padding: 0.85rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-family: inherit;
+}
+
+.portal-form input:focus {
+  outline: none;
+  border-color: #0d9488;
+}
+
+.portal-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.portal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.portal-btn-primary {
+  background: #0d9488;
+  color: white;
+}
+
+.portal-btn-primary:hover:not(:disabled) {
+  background: #0f766e;
+}
+
+.portal-btn-secondary {
+  background: white;
+  color: #334155;
+  border: 2px solid #e2e8f0;
+}
+
+.portal-btn-link {
+  background: none;
+  color: #0d9488;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+.portal-btn-icon {
+  background: white;
+  border: 1px solid #e2e8f0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.25rem;
+}
+
+.portal-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.portal-actions .portal-btn-primary {
+  flex: 1;
+}
+
+.portal-hint,
+.portal-demo-hint {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.portal-dev-code {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.portal-alert {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.portal-alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.portal-loading {
+  text-align: center;
+  color: #64748b;
+  padding: 2rem;
+}
+
+/* Service panels — Step 2 */
+.service-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.service-panel:hover {
+  border-color: #99f6e4;
+}
+
+.service-panel.selected {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.service-icon {
+  font-size: 2rem;
+}
+
+.service-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.service-slots {
+  font-size: 0.8rem;
+  color: #0d9488;
+  font-weight: 600;
+}
+
+/* Calendar — Step 3 */
+.calendar-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.calendar-nav h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1;
+  min-height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  font-family: inherit;
+}
+
+.calendar-cell.empty {
+  pointer-events: none;
+}
+
+.calendar-cell.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #f0fdfa;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.calendar-cell.day:hover:not(:disabled) {
+  background: #ccfbf1;
+}
+
+.calendar-cell.day.selected {
+  background: #0d9488;
+  color: white;
+}
+
+.calendar-cell.day.disabled {
+  background: #f1f5f9;
+  color: #cbd5e1;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.day-num {
+  font-size: 0.95rem;
+}
+
+.day-slots {
+  font-size: 0.6rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.calendar-legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.dot.available {
+  background: #99f6e4;
+}
+
+.dot.full {
+  background: #e2e8f0;
+}
+
+.portal-selection-summary {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #ecfeff;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #115e59;
+}
+
+/* Confirm — Step 4 */
+.confirm-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+}
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.confirm-row:last-child {
+  border-bottom: none;
+}
+
+.confirm-row span {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Ticket */
+.portal-ticket-step {
+  text-align: center;
+}
+
+.ticket-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 2px solid #0d9488;
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.12);
+  margin-bottom: 1.5rem;
+}
+
+.ticket-header .ticket-check {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ticket-header h2 {
+  margin: 0 0 0.35rem;
+}
+
+.ticket-header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.ticket-code {
+  font-family: 'Courier New', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d9488;
+  background: #f0fdfa;
+  padding: 0.75rem;
+  border-radius: 10px;
+  margin: 1.25rem 0;
+  letter-spacing: 0.05em;
+}
+
+.ticket-details {
+  text-align: left;
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.ticket-row span {
+  color: #64748b;
+}
+
+.queue-num {
+  font-size: 1.5rem;
+  color: #0d9488;
+}
+
+.ticket-status {
+  text-transform: capitalize;
+  color: #16a34a;
+}
+
+.ticket-footer {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.portal-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+
+.portal-footer a {
+  color: #64748b;
+}
+
+@media (min-width: 600px) {
+  .portal-main {
+    padding: 2rem;
+  }
+
+  .service-panels {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

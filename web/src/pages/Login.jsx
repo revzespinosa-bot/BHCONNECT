@@ -47,6 +47,7 @@ export default function Login() {
           </button>
         </form>
         <p className="login-hint">Demo login: admin / password123</p>
+        <p className="login-hint"><a href="/portal">Patient booking portal →</a></p>
       </div>
     </div>
   );

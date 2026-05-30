@@ -11,6 +11,7 @@ const alertRoutes = require('./routes/alerts');
 const referralRoutes = require('./routes/referrals');
 const syncRoutes = require('./routes/sync');
 const dashboardRoutes = require('./routes/dashboard');
+const portalRoutes = require('./routes/portal');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,6 +32,7 @@ app.use('/api/alerts', alertRoutes);
 app.use('/api/referrals', referralRoutes);
 app.use('/api/sync', syncRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/portal', portalRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

@@ -28,6 +28,10 @@ async function seed() {
   console.log('Inserting seed data...');
   await connection.query(seedWithHash);
 
+  const portalSql = fs.readFileSync(path.join(__dirname, '../../database/portal-migration.sql'), 'utf8');
+  console.log('Applying patient portal schema...');
+  await connection.query(portalSql);
+
   await connection.end();
   console.log('Database seeded successfully.');
   console.log('Login: admin / password123');

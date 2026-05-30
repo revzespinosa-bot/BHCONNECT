@@ -72,7 +72,25 @@ Dashboard runs at **http://localhost:5173**
 
 The Vite dev server proxies `/api` requests to the backend automatically.
 
-## Demo Login
+## Patient Booking Portal
+
+Patients book appointments through a dedicated 4-step flow at **http://localhost:5173/portal**
+
+| Step | Flow |
+|------|------|
+| 1 | **Login** — Registered mobile number + SMS verification code |
+| 2 | **Service** — Choose Maternal Health, Immunization, or General Medicine |
+| 3 | **Date** — Calendar loads slot availability; full days are grayed out |
+| 4 | **Ticket** — Confirm booking → queue number + ticket code generated |
+
+**Demo patient phone:** `09171111111` (Pedro Garcia) — after requesting a code, the 6-digit code appears on screen in development mode.
+
+```powershell
+cd backend
+npm run migrate:portal   # if upgrading an existing database
+```
+
+## Demo Login (Staff)
 
 | Username | Password | Role |
 |---|---|---|

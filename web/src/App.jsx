@@ -12,6 +12,7 @@ import HomeVisits from './pages/HomeVisits';
 import Inventory from './pages/Inventory';
 import Alerts from './pages/Alerts';
 import Referrals from './pages/Referrals';
+import PatientPortal from './portal/PatientPortal';
 
 function LoginRoute() {
   const { user, loading } = useAuth();
@@ -25,6 +26,7 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/portal" element={<PatientPortal />} />
           <Route path="/login" element={<LoginRoute />} />
           <Route
             element={
